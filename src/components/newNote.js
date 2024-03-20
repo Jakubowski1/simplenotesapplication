@@ -1,5 +1,11 @@
-// import firebase from 'firebase/app';
-// import 'firebase/firestore';
+// import firebase from 'firebase/compat/app';
+// import 'firebase/compat/firestore';
+// import { initializeApp } from "firebase/app";
+// import {firebaseConfig} from "./firebaseInitialize.js";
+
+// initializeApp(firebaseConfig);
+// // Get a Firestore instance
+// const firestore = firebase.firestore();
 
 // // Add a new note to Firestore
 // firestore.collection('notes').add({
@@ -13,4 +19,3 @@
 //   .catch((error) => {
 //     console.error("Error adding note: ", error);
 //   });
-  

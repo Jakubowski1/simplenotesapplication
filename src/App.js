@@ -1,28 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import "./firebaseConfiguration/firebaseInitialize"
-import "./firebaseConfiguration/newNote"
+import "./db/firebaseInitialize.js"
+import "./components/newNote.js"
 import "./components/notesList"
 
+
 function App() {
+  // const app = initializeApp(firebaseConfig);
+  // const firestore = getFirestore(app);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          
-        </a>
-      </header>
-    </div>
+    <div> ssssssssss</div>
   );
 }
 
 export default App;
+
+
