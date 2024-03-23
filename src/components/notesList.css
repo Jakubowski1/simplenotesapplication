@@ -2,13 +2,16 @@ ul{
     display: flex;
     flex-direction: row;
     align-content: space-evenly ;
+    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .card {
-    background-color: #f0e68c; /* Light goldenrod yellow */
-    border-radius: 25px;
-    height: fit-content;
-    width: auto;
+    background-color: #dfd696; /* Light goldenrod yellow */
+    border-radius: 10px;
+    height: 400px;
+    width: 400px;
     padding: 20px; /* Add padding */
     transition: transform 0.2s ease-in-out; /* Add transition for smooth animation */
 }
