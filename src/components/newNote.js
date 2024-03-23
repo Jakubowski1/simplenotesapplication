@@ -1,21 +1,31 @@
-// import firebase from 'firebase/compat/app';
-// import 'firebase/compat/firestore';
-// import { initializeApp } from "firebase/app";
-// import {firebaseConfig} from "./firebaseInitialize.js";
+"use client"
 
-// initializeApp(firebaseConfig);
-// // Get a Firestore instance
-// const firestore = firebase.firestore();
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-// // Add a new note to Firestore
-// firestore.collection('notes').add({
-//     title: "Your Note Title",
-//     text: "Your Note Text",
-//     createdAt: firebase.firestore.FieldValue.serverTimestamp() // Add current server timestamp
-//   })
-//   .then((docRef) => {
-//     console.log("Note added with ID: ", docRef.id);
-//   })
-//   .catch((error) => {
-//     console.error("Error adding note: ", error);
-//   });
+
+// Defining the type of props that the Project component will receive.
+
+
+// Defining the Project component that receives properties.
+export default function Project(){
+  // Creating a reference to a DOM element.
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Extracting scroll position data using the "useScroll" hook.
+  const { scrollYProgress } = useScroll({
+    target: ref,  // The element to which we want to track the scroll position.
+    offset: ["0 1", "1.33 1"],  // Offsets for the scroll position.
+  });
+
+  // Scaling effect based on scroll progress.
+  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+
+  // Opacity effect based on scroll progress.
+  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+
+  return (
+    <header> MATEUSz</header>
+  
+  );
+}

@@ -1,48 +1,38 @@
-// import React, { useState, useEffect } from 'react';
-// import firebase from 'firebase/compat/app';
-// import 'firebase/compat/firestore';
+import  { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../db/firebaseInitialize';
+import './notesList.css'
 
-// const NotesList = () => {
-//   const [notes, setNotes] = useState([]);
+const NotesList = () => {
+  const [notes, setNotes] = useState([]);
 
-//   useEffect(() => {
-//     // Initialize Firestore
-//     const firestore = firebase.firestore();
+  useEffect(() => {
+    const fetchData = async () => {
+        const data = await getDocs(collection(db, 'notesCollection')); // Replace 'notes' with your actual collection name
+        setNotes(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
+    };
+    fetchData();
+  }, []); // Empty dependency array ensures the effect runs only once after initial render
 
-//     // Fetch notes from Firestore
-//     const fetchNotes = async () => {
-//       try {
-//         const notesCollection = await firestore.collection('notes').get();
-//         const fetchedNotes = notesCollection.docs.map(doc => ({
-//           id: doc.id,
-//           ...doc.data()
-//         }));
-//         setNotes(fetchedNotes);
-//       } catch (error) {
-//         console.error('Error fetching notes: ', error);
-//       }
-//     };
+  return (
+    <div>
+      <h2>Notes:</h2>
+      <ul>
+        {notes.map((note) => {
+         
+         return(
+          <div key = {note.id} className='card'> 
 
-//     fetchNotes();
+            <h1> {note.title}         </h1>
+            <h2> {note.description}  </h2>
+            
+          </div>  
+         )
+         }
+         )}
+      </ul>
+    </div>
+  );
+};
 
-//     // Clean up the effect
-//     return () => {
-//       // Cleanup code, if needed
-//     };
-//   }, []); // Empty dependency array to run the effect only once when the component mounts
-
-//   return (
-//     <div>
-//       <h2>Notes</h2>
-//       <ul>
-//         {notes.map(note => (
-//           <li key={note.id}>
-//             <strong>{note.title}</strong>: {note.text}
-//           </li>
-//         ))}
-//       </ul> 
-//     </div>
-//   );
-// };
-
-// export default NotesList;
+export default NotesList;
