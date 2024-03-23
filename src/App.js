@@ -3,14 +3,14 @@ import NotesList from "./components/notesList"
 import firebase from "./db/firebaseInitialize.js"
 import {useState, useEffect} from "react"
 import { QuerySnapshot } from "firebase/firestore"
-
-
+import Instruction from "./components/Instruction.js"
+import "./index.css"
 
 function App() {
     return (
-    <div> 
-      <NotesList/>
-    </div>
+    <body className="main container"> 
+    <NotesList/>
+    </body>
   );
 }
 

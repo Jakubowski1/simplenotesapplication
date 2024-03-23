@@ -1,8 +1,9 @@
-// Note.jsx
 import React, { useState } from 'react';
 import { doc, updateDoc, deleteDoc, Timestamp } from 'firebase/firestore';
 import { db } from '../db/firebaseInitialize';
 import { FaTrashCan } from "react-icons/fa6";
+import './Note.css'
+
 
 const Note = ({ note, setNotes }) => {
   const [editTitle, setEditTitle] = useState('');
@@ -35,17 +36,24 @@ const Note = ({ note, setNotes }) => {
     <div className="card">
       {isEditing ? (
         <>
-          <input value={editTitle} onChange={(event) => setEditTitle(event.target.value)} placeholder="Title..." />
-          <input value={editMessage} onChange={(event) => setEditMessage(event.target.value)} placeholder="Message..." />
+          <input className='h1' value={editTitle} onChange={(event) => setEditTitle(event.target.value)} placeholder="Title..." />
+          <input className='h2' value={editMessage} onChange={(event) => setEditMessage(event.target.value)} placeholder="Message..." />
           <button onClick={updateNote}>Save</button>
+         
+            <FaTrashCan className='trash' onClick={deleteNote} />
+           
         </>
       ) : (
         <>
+          
           <div onClick={() => { setIsEditing(true); setEditTitle(note.title); setEditMessage(note.description); }}>
-            <h3>{note.title}</h3>
-            <p>{note.description}</p>
+            <div className='h1'>{note.title}</div>
+            <div className='h2'>{note.description}</div>
           </div>
-          <FaTrashCan onClick={deleteNote} />
+          <button className="if-disabled">Save</button>
+          
+            <FaTrashCan className='trash' onClick={deleteNote} />
+        
         </>
       )}
     </div>

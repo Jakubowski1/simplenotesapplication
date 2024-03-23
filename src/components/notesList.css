@@ -5,17 +5,92 @@ ul{
     justify-content: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    margin-top: 40px;
 }
+.searchBar {
+    margin: 0;
+    padding: 40px;
 
-.card {
-    background-color: #dfd696; /* Light goldenrod yellow */
-    border-radius: 10px;
-    height: 400px;
-    width: 400px;
-    padding: 20px; /* Add padding */
-    transition: transform 0.2s ease-in-out; /* Add transition for smooth animation */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+    display: flex;
+    justify-content: center; /* Centers the input horizontally */
+    align-items: center; /* Centers the input vertically */
+  }
+  
+  /* Styling for the input within the search bar */
+  .searchBar input[type="text"] {
+    width:30%; /* Occupies 80% of the searchBar width */
+    padding: 10px 15px;
+    font-size: 16px; /* Larger font size for better readability */
+    border: 2px solid #ddd; /* Light grey border */
+    border-radius: 5px; /* Slightly rounded corners for the input */
+    background-color: white; /* White background for the input */
+    outline: none; /* Removes the outline to avoid distraction */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+  }
+  
+  /* Changes the border color of input when it is focused */
+  .searchBar input[type="text"]:focus {
+    border-color: #007bff; /* Changes border color to blue when focused */
+  }
+.addCard {
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(66, 221, 242); /* Light gray background */
+    border: 1px solid #dbf3fa;/* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    
+  }
+  
+  @keyframes rotate{
+    0% {
+      transform: rotate(0);
+      transform-origin: 0% 100%;
+    }
+    100% {
+      transform: rotate(-3deg);
+      transform-origin: 0% 100%;
+    }
+  }
+  .addCard:hover {
+    animation: rotate 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+.h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left; 
+    
+  }
+  
+  .h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    width: calc(100% - 20px);
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: transparent; 
+    border-color: transparent;
+}
+    
 
-.card:hover {
-    transform: scale(1.1); /* Scale up on hover */
-}
+  .addCard .saveButton {
+    padding: 10px 20px; /* Adds space inside the button */
+    background-color: #007bff; /* Blue background for visibility */
+    color: white; /* White text for contrast */
+    border: none; /* Removes the border */
+    border-radius: 4px; /* Rounded corners for the button */
+    cursor: pointer; /* Changes cursor to pointer when over the button */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+  }
+  
+  .saveButton:hover {
+    background-color: #0056b3;
+  }
