@@ -32,6 +32,8 @@ body {
   margin-bottom: 20px;
   padding: 40px;
   width: 380px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .card:hover {
