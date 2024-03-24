@@ -16,7 +16,7 @@ const Note = ({ note, setNotes }) => {
       const updatedNote = {
         title: editTitle,
         description: editMessage,
-        timestamp: Timestamp.now(),
+        timestamp: Timestamp.now(),  
       };
       await updateDoc(docNote, updatedNote);
       setIsEditing(false);
@@ -33,31 +33,33 @@ const Note = ({ note, setNotes }) => {
   };
 
   return (
-    <div className="card">
-      {isEditing ? (
-        <>
-          <input className='h1' value={editTitle} onChange={(event) => setEditTitle(event.target.value)} placeholder="Title..." />
-          <input className='h2' value={editMessage} onChange={(event) => setEditMessage(event.target.value)} placeholder="Message..." />
-          <button onClick={updateNote}>Save</button>
-         
-            <FaTrashCan className='trash' onClick={deleteNote} />
-           
-        </>
-      ) : (
-        <>
-          
-          <div onClick={() => { setIsEditing(true); setEditTitle(note.title); setEditMessage(note.description); }}>
-            <div className='h1'>{note.title}</div>
-            <div className='h2'>{note.description}</div>
+   
+      <div className="card">
+          {isEditing ? (
+              <>
+                  <textarea className='h1' value={editTitle} onChange={(event) => setEditTitle(event.target.value)} placeholder="Title..." />
+                  <textarea className='h2' value={editMessage} onChange={(event) => setEditMessage(event.target.value)} placeholder="Message..." />
+                  <button className="saveButton" onClick={updateNote}>Save</button>
+              </>
+          ) : (
+              <>
+                  <div >
+                      <textarea onChange={() => { setIsEditing(true); setEditTitle(note.title); setEditMessage(note.description); }} className='h1' value={note.title}/>
+                      <textarea onChange={() => { setIsEditing(true); setEditTitle(note.title); setEditMessage(note.description); }} className='h2'value={note.description}/>
+                  </div>
+                  <div className='cardFooter'>
+                  <button className="if-disabled">Save</button>
+                  
+          <div className='timestamp'>{note.timestamp?.toDate().toLocaleString()}</div>
+          <FaTrashCan className='trash' onClick={deleteNote} />
           </div>
-          <button className="if-disabled">Save</button>
-          
-            <FaTrashCan className='trash' onClick={deleteNote} />
+              </>
+          )}
         
-        </>
-      )}
-    </div>
-  );
-};
+      </div>
+    );
+}
+
+ 
 
 export default Note;

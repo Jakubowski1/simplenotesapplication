@@ -4,7 +4,7 @@ import firebase from "./db/firebaseInitialize.js"
 import {useState, useEffect} from "react"
 import { QuerySnapshot } from "firebase/firestore"
 import Instruction from "./components/Instruction.js"
-import "./index.css"
+import "./App.css"
 
 function App() {
     return (

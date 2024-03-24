@@ -5,22 +5,24 @@ ul{
     justify-content: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin-top: 40px;
+    padding-top: 150px;
+    padding-bottom: 700px;
 }
 .searchBar {
+    position: absolute;
+    width:100%;
     margin: 0;
     padding: 40px;
-
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
     display: flex;
     justify-content: center; /* Centers the input horizontally */
     align-items: center; /* Centers the input vertically */
   }
-  
+ 
   /* Styling for the input within the search bar */
   .searchBar input[type="text"] {
-    width:30%; /* Occupies 80% of the searchBar width */
+    width:80%; /* Occupies 80% of the searchBar width */
     padding: 10px 15px;
     font-size: 16px; /* Larger font size for better readability */
     border: 2px solid #ddd; /* Light grey border */
@@ -36,7 +38,7 @@ ul{
   }
 .addCard {
     width: 300px;
-    height: 300px;
+    height: 340px;
     padding: 20px;
     margin-bottom: 20px;
     background-color: rgb(66, 221, 242); /* Light gray background */
@@ -45,34 +47,23 @@ ul{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
     
   }
-  
-  @keyframes rotate{
-    0% {
-      transform: rotate(0);
-      transform-origin: 0% 100%;
-    }
-    100% {
-      transform: rotate(-3deg);
-      transform-origin: 0% 100%;
-    }
-  }
-  .addCard:hover {
-    animation: rotate 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
+
 .h1 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: left; 
-    
+    height: fit-content;
   }
   
   .h2 {
     font-size: 16px;
     margin-bottom: 10px;
+    height: 200px;
   }
   
-  input {
+  
+  textarea {
     width: calc(100% - 20px);
     padding: 5px;
     margin-bottom: 10px;

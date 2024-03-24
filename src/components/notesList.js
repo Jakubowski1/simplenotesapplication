@@ -11,29 +11,21 @@ const NotesList = () => {
   const [isAddedSuccess, setIsAddedSuccess] = useState(true);
   const [searchQuery, setSearchQuery] = useState(''); // New state for the search query
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const data = await getDocs(collection(db, 'notesCollection'));
-  //     setNotes(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  //     setIsAddedSuccess(false);
-  //   };
-  //   if(isAddedSuccess)fetchData();
-  // }, [isAddedSuccess]);
   useEffect(() => {
     const fetchData = async () => {
       const data = await getDocs(collection(db, 'notesCollection'));
       setNotes(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setIsAddedSuccess(false);
     };
+    if(isAddedSuccess)fetchData();
+  }, [isAddedSuccess]);
 
-    // Now, fetchData is called only once when the component mounts
-    fetchData();
-  }, []);
   const createNote = async () => {
     if (newTitle.trim() !== '' && newMessage.trim() !== '') {
       await addDoc(collection(db, 'notesCollection'), { title: newTitle, description: newMessage, timestamp: Timestamp.now() });
       setNewTitle('');
       setNewMessage('');
-      setIsAddedSuccess(true); // Ensure this is set after adding a note
+      setIsAddedSuccess(true); 
     }
   };
 
@@ -54,8 +46,8 @@ const NotesList = () => {
       </div>
       <ul>
         <div className="addCard">
-          <input className='h1' placeholder="Title..." value={newTitle} onChange={(event) => setNewTitle(event.target.value)} />
-          <input className='h2' placeholder="Message..." value={newMessage} onChange={(event) => setNewMessage(event.target.value)} />
+          <textarea className='h1' placeholder="Title..." value={newTitle} onChange={(event) => setNewTitle(event.target.value)} />
+          <textarea className='h2' placeholder="Message..." value={newMessage} onChange={(event) => setNewMessage(event.target.value)} />
           <button className="saveButton" onClick={createNote}>Save</button>
 
         </div>
