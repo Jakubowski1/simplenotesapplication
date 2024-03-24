@@ -35,6 +35,11 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+  @media screen and (max-width: 1000px) {
+    .card {
+        width: 70%;
+    }
+}
  .timestamp{
     font-size: 14px;
     color:rgb(127, 127, 127)
@@ -44,11 +49,12 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    column-gap: 50px;
+    column-gap: 30px;
+    justify-content: center;
   }
+ 
   .card .trash{
-    right: -20px;
-    position: relative; 
+    
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
   }
