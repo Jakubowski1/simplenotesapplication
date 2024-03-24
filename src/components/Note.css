@@ -26,25 +26,25 @@ body {
     }
 }
 .card {
-    width: 300px;
+    width: 380px;
     height: 340px;
     border: 1px solid rgb(250, 217, 178);
-    padding: 20px;
+    padding: 40px;
     margin-bottom: 20px;
     background-color: bisque;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
  .timestamp{
-    font-size: 13px;
-    color:rgb(92, 92, 92)
+    font-size: 14px;
+    color:rgb(127, 127, 127)
 
  }
   .cardFooter{
     display: flex;
     flex-direction: row;
     align-items: center;
-    column-gap: 20px;
+    column-gap: 50px;
   }
   .card .trash{
     right: -20px;
@@ -89,7 +89,9 @@ body {
 .card .saveButton {
     padding: 10px 20px;
     right: -5px;
-    
+    font-size: large;
+    font-weight: 600;
+    font-style: italic;
     position: relative; /* Adds space inside the button */
     background-color: #007bff; /* Blue background for visibility */
     color: white; /* White text for contrast */
@@ -100,7 +102,9 @@ body {
   }
  .card .if-disabled {
     right: -5px;
-    
+    font-size: large;
+    font-weight: 600;
+    font-style: italic;
     position: relative;
     background-color: #a2a2a2;
     color: #fff;

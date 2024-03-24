@@ -51,7 +51,7 @@ const Note = ({ note, setNotes }) => {
                   <button className="if-disabled">Save</button>
                   
           <div className='timestamp'>{note.timestamp?.toDate().toLocaleString()}</div>
-          <FaTrashCan className='trash' onClick={deleteNote} />
+          <FaTrashCan size={25} className='trash' onClick={deleteNote} />
           </div>
               </>
           )}

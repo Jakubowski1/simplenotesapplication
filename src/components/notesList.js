@@ -14,12 +14,14 @@ const NotesList = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getDocs(collection(db, 'notesCollection'));
-      setNotes(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const sortedNotes = data.docs
+        .map(doc => ({ ...doc.data(), id: doc.id }))
+        .sort((a, b) => b.timestamp.toDate() - a.timestamp.toDate()); // Sort notes by timestamp
+      setNotes(sortedNotes);
       setIsAddedSuccess(false);
     };
-    if(isAddedSuccess)fetchData();
+    if(isAddedSuccess) fetchData();
   }, [isAddedSuccess]);
-
   const createNote = async () => {
     if (newTitle.trim() !== '' && newMessage.trim() !== '') {
       await addDoc(collection(db, 'notesCollection'), { title: newTitle, description: newMessage, timestamp: Timestamp.now() });

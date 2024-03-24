@@ -1,7 +1,7 @@
 ul{
     display: flex;
     flex-direction: row;
-    align-content: space-evenly ;
+    align-content: space-around ;
     justify-content: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -9,15 +9,19 @@ ul{
     padding-bottom: 700px;
 }
 .searchBar {
-    position: absolute;
-    width:100%;
-    margin: 0;
-    padding: 40px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px #0000001a;
     display: flex;
-    justify-content: center; /* Centers the input horizontally */
-    align-items: center; /* Centers the input vertically */
+    justify-content: center;
+    margin: 0;
+    padding: 40px 0px;
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(2px);
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 999;
   }
  
   /* Styling for the input within the search bar */
@@ -37,9 +41,9 @@ ul{
     border-color: #007bff; /* Changes border color to blue when focused */
   }
 .addCard {
-    width: 300px;
+    width: 380px;
     height: 340px;
-    padding: 20px;
+    padding: 40px;
     margin-bottom: 20px;
     background-color: rgb(66, 221, 242); /* Light gray background */
     border: 1px solid #dbf3fa;/* Light gray border */
@@ -76,6 +80,9 @@ ul{
     padding: 10px 20px; /* Adds space inside the button */
     background-color: #007bff; /* Blue background for visibility */
     color: white; /* White text for contrast */
+    font-size: large;
+    font-weight: 600;
+    font-style: italic;
     border: none; /* Removes the border */
     border-radius: 4px; /* Rounded corners for the button */
     cursor: pointer; /* Changes cursor to pointer when over the button */
