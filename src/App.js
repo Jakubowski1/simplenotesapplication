@@ -1,16 +1,12 @@
-import "./db/firebaseInitialize.js"
-import NotesList from "./components/notesList"
-import firebase from "./db/firebaseInitialize.js"
-import {useState, useEffect} from "react"
-import { QuerySnapshot } from "firebase/firestore"
-import Instruction from "./components/Instruction.js"
-import "./App.css"
+
+import "./App.css";
+import NotesList from "./components/ListNotes";
 
 function App() {
     return (
-    <body className="main container"> 
+    <div className="main container"> 
     <NotesList/>
-    </body>
+    </div>
   );
 }
 
